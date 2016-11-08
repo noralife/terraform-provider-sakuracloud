@@ -1,4 +1,4 @@
-TEST1?=./builtin/bins/provider-sakuracloud
+TEST1?=./
 TEST2?=./builtin/providers/sakuracloud
 VETARGS?=-all
 GOFMT_FILES?=$$(find . -name '*.go' | grep -v vendor)
@@ -9,7 +9,7 @@ clean:
 	rm -Rf $(CURDIR)/bin/*
 
 build: clean vet
-	govendor build -ldflags "-s -w" -o $(CURDIR)/bin/terraform-provider-sakuracloud $(CURDIR)/builtin/bins/provider-sakuracloud/main.go
+	govendor build -ldflags "-s -w" -o $(CURDIR)/bin/terraform-provider-sakuracloud $(CURDIR)/main.go
 
 build-x: clean vet
 	sh -c "'$(CURDIR)/scripts/build.sh'"
